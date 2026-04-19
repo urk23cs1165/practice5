@@ -45,8 +45,7 @@ pipeline{
                 docker rm myapp||true
                 docker run -d --name myapp 5000:5000 $DOCKER_HUB_USER/@IMAGE_NAME:latest 
                 '''
-            
-
+            }
         }
     }
 }
