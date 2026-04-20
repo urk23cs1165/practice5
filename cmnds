@@ -1,0 +1,33 @@
+d Free offer X
+STEP 1: Remove old Jenkins .....-. ... nt)
+
+<> Bash
+
+docker rm -f jenkins
+
+STEP 2: Run Jenkins with Docker access
+Run this in PowerShell (single line):
+
+PowerShell
+
+v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts
+
+STEP 3: Enter Jenkins container as ROOT
+
+«> Bash
+
+docker exec -it -u root jenkins bash
+
+STEP 4: Install Docker inside Jenkins
+
+"> Bash
+
+apt-get update
+apt-get install -y docker.io
+
+STEP 5: Fix Docker permission (VERY IMPORTANT)
+
+> Bash
+
+chmod 666 /var/run/docker.sock
+usermod -aG docker jenkins
